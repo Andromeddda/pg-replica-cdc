@@ -13,3 +13,21 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
+  pg-replica:
+      build: ./pg-replica
+      container_name: pg-replica
+      environment:
+        PRIMARY_HOST: pg-primary
+        REPLICATOR_USER: replicator
+        REPLICATOR_PASSWORD: replicator
+        PGDATA: /var/lib/postgresql/data
+      ports:
+        - "5433:5432"
+      depends_on:
+        pg-primary:
+          condition: service_healthy
+      healthcheck:
+        test: ["CMD-SHELL", "pg_isready -U postgres"]
+        interval: 5s
+        timeout: 5s
+        retries: 10

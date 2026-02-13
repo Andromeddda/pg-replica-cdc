@@ -1,0 +1,12 @@
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
