@@ -13,3 +13,14 @@
 
 resources/
 logs/
+
+*.doc
+*.pdf
+*.xls
+*.ppt
+*.zip
+*.tar.gz
+*.log
+*.docx
+*.xlsx
+*.pptx
